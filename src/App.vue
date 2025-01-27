@@ -12,7 +12,10 @@
       <h3>Liste des utilisateurs</h3>
       <ul>
         <li v-for="user in state.users">
-          <p>{{ user.name }} - {{ user.email }}</p>
+          <p class="mr-10">{{ user.name }} - {{ user.email }}</p>
+          <button @click="deleteUser(user._id)" type="button" class="btn btn-danger">
+            Supprimer
+          </button>
         </li>
       </ul>
     </div>
@@ -38,7 +41,7 @@ const { handleSubmit, resetForm } = useForm()
 
 const mySubmit = handleSubmit(async (value) => {
   try {
-    const response = await fetch('https://restapi.fr/api/vueuser', {
+    const response = await fetch('https://restapi.fr/api/vueusers', {
       method: 'POST',
       body: JSON.stringify(value),
       headers: {
@@ -55,8 +58,35 @@ const mySubmit = handleSubmit(async (value) => {
 
 const { value: emailValue } = useField('email')
 const { value: nameValue } = useField('name')
+
+async function fetchUsers() {
+  try {
+    const response = await fetch('https://restapi.fr/api/vueusers')
+    const users: User | User[] = await response.json()
+    if (users) {
+      state.users = Array.isArray(users) ? users : [users]
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+async function deleteUser(userId?: string) {
+  try {
+    if (userId) {
+      await fetch(`https://restapi.fr/api/vueusers?id=${userId}`, {
+        method: 'DELETE',
+      })
+      state.users = state.users.filter((user) => user._id !== userId)
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
+
+fetchUsers()
 </script>
 
 <style lang="scss">
-@import './assets/scss/base.scss';
+@use './assets/scss/base.scss' as *;
 </style>
