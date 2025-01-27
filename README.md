@@ -37,8 +37,4 @@ npm run build
 ```sh
 npm run lint
 ```
-# vuejs-formulaire
-# vuejs-ajax-POST
-# vuejs-ajax-POST
-# vuejs-ajax-POST
 # vuejs-ajax-POST
