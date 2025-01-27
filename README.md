@@ -1,4 +1,5 @@
 # vuejs-ajax-POST-DELETE
+Formulaire dynamique 
 
 ## Project Setup
 
@@ -17,4 +18,4 @@ npm run dev
 ```sh
 npm run lint
 ```
-
+![Description de l'image](https://github.com/hNnicolas/vuejs-slot/blob/main/public/images/slot_screenshot.png)
