@@ -18,4 +18,4 @@ npm run dev
 ```sh
 npm run lint
 ```
-![Description de l'image](https://github.com/hNnicolas/vuejs-slot/blob/main/public/images/slot_screenshot.png)
+![Description de l'image](https://github.com/hNnicolas/vuejs-ajax-POST-DELETE/blob/main/public/images/formulaire.png)
