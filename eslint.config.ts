@@ -34,6 +34,7 @@ export default defineConfigWithVueTs(
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/ban-types': 'off',
       'vue/return-in-computed-property': 'off',
+      'vue/require-v-for-key': 'off',
     },
   },
 )
